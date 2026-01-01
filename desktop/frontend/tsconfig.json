@@ -17,7 +17,8 @@
       "@/*": [
         "./src/*"
       ]
-    }
+    },
+    "types": ["unplugin-vue-router/client"]
   },
   "include": [
     "src",

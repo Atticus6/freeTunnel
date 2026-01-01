@@ -1,7 +1,9 @@
 <script setup lang="ts"></script>
 
 <template>
-    <div class="min-h-screen flex justify-center items-center">
-        <a-button>11</a-button>
-    </div>
+  <div class="flex justify-center">
+    <RouterLink to="/">home</RouterLink>
+    <RouterLink to="/about">about</RouterLink>
+  </div>
+  <RouterView />
 </template>
