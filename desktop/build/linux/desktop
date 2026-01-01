@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=My Product
+Comment=A react-swc-ts application
+# The Exec line includes %u to pass the URL to the application
+Exec=/usr/local/bin/react-swc-ts %u
+Terminal=false
+Type=Application
+Icon=react-swc-ts
+Categories=Utility;
+StartupWMClass=react-swc-ts
+
+ 

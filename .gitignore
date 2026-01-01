@@ -1,0 +1,5 @@
+desktop/frontend/node_modules/
+desktop/.task/
+.DS_Store
+desktop/bin/
+desktop/frontend/.tanstack/
