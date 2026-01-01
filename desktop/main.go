@@ -34,7 +34,7 @@ func main() {
 	}
 	logger.Info("数据库初始化成功")
 
-	tunnelService := &services.TunnelService{}
+	tunnelService := services.NewTunnelService()
 
 	if err := tunnelService.ClearAllQuickTunnelUrls(); err != nil {
 		logger.Error(err)

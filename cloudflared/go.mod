@@ -1,4 +1,4 @@
-module github.com/atticus6/freeTunnel/trycloudflared
+module github.com/atticus6/freeTunnel/cloudflared
 
 go 1.25.0
 

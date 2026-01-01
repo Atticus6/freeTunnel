@@ -26,7 +26,7 @@ import (
 	"github.com/urfave/cli/v2"
 )
 
-func CreateCloudflareTunnel(ctx context.Context, port int) (string, error) {
+func CreateCloudflareTunnel(ctx context.Context, port int, host string) (string, error) {
 	metrics.RegisterBuildInfo(BuildType, BuildTime, Version)
 
 	clientID, err := uuid.NewRandom()
@@ -47,7 +47,7 @@ func CreateCloudflareTunnel(ctx context.Context, port int) (string, error) {
 	ing, err := ingress.ParseIngress(&config.Configuration{
 		Ingress: []config.UnvalidatedIngressRule{
 			{
-				Service: fmt.Sprintf("http://localhost:%d", port),
+				Service: fmt.Sprintf("http://%s:%d", host, port),
 			},
 		},
 	})
