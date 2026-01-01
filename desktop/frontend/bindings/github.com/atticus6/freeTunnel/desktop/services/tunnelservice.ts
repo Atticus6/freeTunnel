@@ -9,6 +9,14 @@ import { Call as $Call, CancellablePromise as $CancellablePromise, Create as $Cr
 // @ts-ignore: Unused imports
 import * as models$0 from "../models/models.js";
 
+export function ClearAllQuickTunnelUrls(): $CancellablePromise<void> {
+    return $Call.ByID(1990002804);
+}
+
+export function CloseTunnel(id: number): $CancellablePromise<void> {
+    return $Call.ByID(3256202569, id);
+}
+
 export function CreateTunnel(name: string, host: string, port: number): $CancellablePromise<models$0.Tunnel | null> {
     return $Call.ByID(1709182411, name, host, port).then(($result: any) => {
         return $$createType1($result);
@@ -25,8 +33,8 @@ export function GetAllTunnels(): $CancellablePromise<models$0.Tunnel[]> {
     });
 }
 
-export function ToggleTunnel(id: number): $CancellablePromise<void> {
-    return $Call.ByID(2540223067, id);
+export function OpenTunnel(id: number): $CancellablePromise<void> {
+    return $Call.ByID(2196709799, id);
 }
 
 // Private type creation functions

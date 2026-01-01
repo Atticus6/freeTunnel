@@ -4,6 +4,7 @@ import (
 	"embed"
 	_ "embed"
 	"log"
+	"log/slog"
 	"path/filepath"
 	"time"
 
@@ -33,11 +34,18 @@ func main() {
 	}
 	logger.Info("数据库初始化成功")
 
+	tunnelService := &services.TunnelService{}
+
+	if err := tunnelService.ClearAllQuickTunnelUrls(); err != nil {
+		logger.Error(err)
+	}
+
 	app := application.New(application.Options{
 		Name:        "react-swc-ts",
 		Description: "A demo of using raw HTML & CSS",
+		LogLevel:    slog.LevelError,
 		Services: []application.Service{
-			application.NewService(&services.TunnelService{}),
+			application.NewService(tunnelService),
 		},
 		Assets: application.AssetOptions{
 			Handler: application.AssetFileServerFS(assets),

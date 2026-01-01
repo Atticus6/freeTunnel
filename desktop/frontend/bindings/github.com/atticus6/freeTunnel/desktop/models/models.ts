@@ -14,6 +14,7 @@ export class Tunnel {
     "name": string;
     "port": number;
     "host": string;
+    "QuickTunnelUrl": string;
     "active": boolean;
     "createdAt": time$0.Time;
     "updatedAt": time$0.Time;
@@ -31,6 +32,9 @@ export class Tunnel {
         }
         if (!("host" in $$source)) {
             this["host"] = "";
+        }
+        if (!("QuickTunnelUrl" in $$source)) {
+            this["QuickTunnelUrl"] = "";
         }
         if (!("active" in $$source)) {
             this["active"] = false;

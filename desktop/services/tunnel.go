@@ -32,14 +32,14 @@ func (t *TunnelService) DeleteById(id uint) error {
 	return database.DB.Delete(&models.Tunnel{}, id).Error
 }
 
-func (t *TunnelService) ToggleTunnel(id uint) (err error) {
+func (t *TunnelService) OpenTunnel(id uint) (err error) {
 	var tunnel models.Tunnel
 
 	if err = database.DB.First(&tunnel, id).Error; err != nil {
 		return err
 	}
 
-	tunnel.Active = !tunnel.Active
+	tunnel.Active = true
 
 	if err = database.DB.Save(&tunnel).Error; err != nil {
 		return err
@@ -47,4 +47,28 @@ func (t *TunnelService) ToggleTunnel(id uint) (err error) {
 
 	return nil
 
+}
+
+func (t *TunnelService) CloseTunnel(id uint) (err error) {
+	var tunnel models.Tunnel
+
+	if err = database.DB.First(&tunnel, id).Error; err != nil {
+		return err
+	}
+
+	tunnel.Active = false
+
+	if err = database.DB.Save(&tunnel).Error; err != nil {
+		return err
+	}
+
+	return nil
+
+}
+
+func (t *TunnelService) ClearAllQuickTunnelUrls() error {
+	return database.DB.Model(&models.Tunnel{}).Where("1 = 1").Updates(map[string]interface{}{
+		"quick_tunnel_url": "",
+		"active":           false,
+	}).Error
 }

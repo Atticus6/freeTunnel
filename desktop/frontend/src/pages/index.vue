@@ -39,7 +39,15 @@ const deleteTunnel = async (id: number) => {
 };
 
 const toggleTunnel = async (id: number) => {
-  await TunnelService.ToggleTunnel(id);
+  const tar = tunnels.value.find((item) => item.id === id);
+  if (!tar) {
+    return;
+  }
+  if (tar.active) {
+    await TunnelService.CloseTunnel(id);
+  } else {
+    await TunnelService.OpenTunnel(id);
+  }
   getTunnels();
 };
 
