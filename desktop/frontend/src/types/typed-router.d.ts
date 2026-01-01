@@ -37,6 +37,27 @@ declare module 'vue-router/auto-routes' {
       Record<never, never>,
       | never
     >,
+    '/account': RouteRecordInfo<
+      '/account',
+      '/account',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/logs': RouteRecordInfo<
+      '/logs',
+      '/logs',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
+    '/settings': RouteRecordInfo<
+      '/settings',
+      '/settings',
+      Record<never, never>,
+      Record<never, never>,
+      | never
+    >,
   }
 
   /**
@@ -59,6 +80,24 @@ declare module 'vue-router/auto-routes' {
     'src/pages/about.vue': {
       routes:
         | '/about'
+      views:
+        | never
+    }
+    'src/pages/account.vue': {
+      routes:
+        | '/account'
+      views:
+        | never
+    }
+    'src/pages/logs.vue': {
+      routes:
+        | '/logs'
+      views:
+        | never
+    }
+    'src/pages/settings.vue': {
+      routes:
+        | '/settings'
       views:
         | never
     }
